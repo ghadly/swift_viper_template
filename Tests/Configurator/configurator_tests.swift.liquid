@@ -1,6 +1,6 @@
 {% include 'header' %}
 
-import XCTest
+{% include 'tests_import_header' %}
 
 class {{ module_info.name }}ConfiguratorTests: XCTestCase {
 
@@ -24,16 +24,16 @@ class {{ module_info.name }}ConfiguratorTests: XCTestCase {
         configurator.configureModuleForViewInput(viewInput: viewController)
 
         //then
-        XCTAssertNotNil(viewController.output, "{{ module_info.name }}ViewController is nil after configuration")
-        XCTAssertTrue(viewController.output is {{ module_info.name }}Presenter, "output is not {{ module_info.name }}Presenter")
+        XCTAssertNotNil(viewController.viewToPresenter, "{{ module_info.name }}ViewController is nil after configuration")
+        XCTAssertTrue(viewController.viewToPresenter is {{ module_info.name }}Presenter, "viewToPresenter is not {{ module_info.name }}Presenter")
 
-        let presenter: {{ module_info.name }}Presenter = viewController.output as! {{ module_info.name }}Presenter
+        let presenter: {{ module_info.name }}Presenter = viewController.viewToPresenter as! {{ module_info.name }}Presenter
         XCTAssertNotNil(presenter.view, "view in {{ module_info.name }}Presenter is nil after configuration")
         XCTAssertNotNil(presenter.router, "router in {{ module_info.name }}Presenter is nil after configuration")
         XCTAssertTrue(presenter.router is {{ module_info.name }}Router, "router is not {{ module_info.name }}Router")
 
         let interactor: {{ module_info.name }}Interactor = presenter.interactor as! {{ module_info.name }}Interactor
-        XCTAssertNotNil(interactor.output, "output in {{ module_info.name }}Interactor is nil after configuration")
+        XCTAssertNotNil(interactor.interactorToPresenter, "interactorToPresenter in {{ module_info.name }}Interactor is nil after configuration")
     }
 
     class {{ module_info.name }}ViewControllerMock: {{ module_info.name }}ViewController {

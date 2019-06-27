@@ -1,11 +1,16 @@
 {% include 'header' %}
 
-import XCTest
+{% include 'tests_import_header' %}
 
 class {{ module_info.name }}InteractorTests: XCTestCase {
 
+
+    var mockInteractorProtocol = {{ module_info.name }}MockPresenter()
+    var interactor = {{ module_info.name }}Interactor()
+
     override func setUp() {
         super.setUp()
+        interactor.interactorToPresenter = mockInteractorProtocol
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
 
@@ -14,7 +19,7 @@ class {{ module_info.name }}InteractorTests: XCTestCase {
         super.tearDown()
     }
 
-    class MockPresenter: {{ module_info.name }}InteractorToPresenter {
+    class {{ module_info.name }}MockPresenter: {{ module_info.name }}InteractorToPresenter {
 
     }
 }

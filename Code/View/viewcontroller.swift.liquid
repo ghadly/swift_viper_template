@@ -4,12 +4,12 @@ import UIKit
 
 class {{ module_info.name }}ViewController: UIViewController, {{module_info.name}}PresenterToView {
 
-    var output: {{ module_info.name }}ViewToPresenter!
+    var viewToPresenter: {{ module_info.name }}ViewToPresenter!
 
     // MARK: Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        output.viewIsReady()
+        viewToPresenter.viewIsReady()
     }
 
 

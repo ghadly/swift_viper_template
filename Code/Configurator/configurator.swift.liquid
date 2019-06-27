@@ -20,10 +20,10 @@ class {{ module_info.name }}Configurator {
         presenter.router = router
 
         let interactor = {{ module_info.name }}Interactor()
-        interactor.output = presenter
+        interactor.interactorToPresenter = presenter
 
         presenter.interactor = interactor
-        viewController.output = presenter
+        viewController.viewToPresenter = presenter
     }
 
 }
