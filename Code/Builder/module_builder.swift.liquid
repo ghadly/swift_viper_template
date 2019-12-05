@@ -1,0 +1,22 @@
+{% include 'header' %}
+import UIKit
+
+final class {{ module_info.name }}Builder {
+
+    // MARK: Initalizers
+    private init() { }
+
+    static func build() -> UIViewController {
+        let router = {{ module_info.name }}Router()
+        let interactor = {{ module_info.name }}Interactor()
+        let presenter = {{ module_info.name }}Presenter(with: interactor,
+                                                        routerInput: router)
+
+        let viewController = {{ module_info.name }}ViewController(viewOutput: presenter)
+        presenter.viewInput = viewController
+        interactor.interactorOutput = presenter
+
+        return viewController
+    }
+
+}

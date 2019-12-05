@@ -1,0 +1,37 @@
+{% include 'header' %}
+import UIKit
+
+// MARK: Presenter To View Interface
+protocol {{ module_info.name }}ViewInput: class {
+    func setupInitialState()
+}
+
+// MARK: View To Presenter Interface
+protocol {{ module_info.name }}ViewOutput: class {
+    func viewIsReady()
+}
+
+// MARK: Presenter To Interactor Interface
+protocol {{ module_info.name }}InteractorInput: class {
+
+}
+
+// MARK: Interactor To Presenter Interface
+protocol {{ module_info.name }}InteractorOutput: class {
+
+}
+
+// MARK: Presenter To Router Interface
+protocol {{ module_info.name }}RouterInput: class {
+
+}
+
+/*
+ *
+ 	To be uncommented if this module needs to pass data back to the calling module.
+ 	The implementaion of this protocol should happen in the presenter of the calling module.
+ *
+protocol {{ module_info.name }}ModuleOutput: class {
+
+}
+*/

@@ -1,12 +1,27 @@
 {% include 'header' %}
+final class {{ module_info.name }}Presenter {
+    // MARK: Properties
+    weak var viewInput: {{ module_info.name }}ViewInput!
+    private let interactorInput: {{ module_info.name }}InteractorInput
+    private let routerInput: {{ module_info.name }}RouterInput
 
-class {{ module_info.name }}Presenter: {{ module_info.name }}PresenterInput, {{ module_info.name }}ViewToPresenter, {{ module_info.name }}InteractorToPresenter {
+    // MARK: Initalizers
+    init(with interactorInput: {{ module_info.name }}InteractorInput,
+    	 routerInput: {{ module_info.name }}RouterInput) {
+    	self.interactorInput = interactorInput
+        self.routerInput = routerInput
+    }
+}
 
-    weak var view: {{ module_info.name }}PresenterToView!
-    var interactor: {{ module_info.name }}PresenterToInteractor!
-    var router: {{ module_info.name }}PresenterToRouter!
+// MARK: View To Presenter Protocol
+extension {{ module_info.name }}Presenter: {{ module_info.name }}ViewOutput {
 
-    func viewIsReady() {
+	func viewIsReady() {
 
     }
+}
+
+// MARK: Interactor To Presenter Protocol
+extension {{ module_info.name }}Presenter: {{ module_info.name }}InteractorOutput {
+
 }

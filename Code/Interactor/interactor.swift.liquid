@@ -1,7 +1,10 @@
 {% include 'header' %}
+class {{ module_info.name }}Interactor{
+    // MARK: Properties
+    weak var interactorOutput: {{ module_info.name }}InteractorOutput!
+}
 
-class {{ module_info.name }}Interactor: {{ module_info.name }}PresenterToInteractor {
-
-    weak var interactorToPresenter: {{ module_info.name }}InteractorToPresenter!
+// MARK: Presenter To Interactor Interface
+extension {{ module_info.name }}Interactor: {{ module_info.name }}InteractorInput {
 
 }
