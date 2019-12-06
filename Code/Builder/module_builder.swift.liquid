@@ -2,10 +2,10 @@
 import UIKit
 
 final class {{ module_info.name }}Builder {
-
     // MARK: Initalizers
     private init() { }
 
+    // MARK: Builder
     static func build() -> UIViewController {
         let router = {{ module_info.name }}Router()
         let interactor = {{ module_info.name }}Interactor()

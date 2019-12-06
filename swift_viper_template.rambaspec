@@ -21,26 +21,26 @@ code_files:
 - {name: Router.swift, path: Code/Router/router.swift.liquid}
 
 # Protocols
-- {name: ModuleProtocols.swift, path: Code/Protocols/module_protocols.swift.liquid}
+- {name: Protocols.swift, path: Code/Protocols/module_protocols.swift.liquid}
 
 # Builder
-- {name: ModuleBuilder.swift, path: Code/Builder/module_builder.swift.liquid}
+- {name: Builder.swift, path: Code/Builder/module_builder.swift.liquid}
 
 
 # The declarations for test files
 test_files:
 
 # Configurators tests
-- {name: Configurator/ConfiguratorTests.swift, path: Tests/Configurator/configurator_tests.swift.liquid}
+- {name: BuilderTests.swift, path: Tests/Builder/builder_tests.swift.liquid}
 
 # View tests
-- {name: View/ViewTests.swift, path: Tests/View/view_tests.swift.liquid}
+- {name: ViewTests.swift, path: Tests/View/view_tests.swift.liquid}
 
 # Interactor tests
-- {name: Interactor/InteractorTests.swift, path: Tests/Interactor/interactor_tests.swift.liquid}
+- {name: InteractorTests.swift, path: Tests/Interactor/interactor_tests.swift.liquid}
 
 # Presenter tests
-- {name: Presenter/PresenterTests.swift, path: Tests/Presenter/presenter_tests.swift.liquid}
+- {name: PresenterTests.swift, path: Tests/Presenter/presenter_tests.swift.liquid}
 
 # Router tests
-- {name: Router/RouterTests.swift, path: Tests/Router/router_tests.swift.liquid}
+- {name: RouterTests.swift, path: Tests/Router/router_tests.swift.liquid}
