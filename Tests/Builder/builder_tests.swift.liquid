@@ -1,0 +1,34 @@
+{% include 'tests_import_header' %}
+
+class {{ module_info.name }}ConfiguratorTests: XCTestCase {
+    // MARK: Lifecycle
+    override func setUp() {
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
+
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+    }
+
+    // MARK: Tests
+    func testConfigureModuleForViewController() {
+        //given
+        let viewController = {{ module_info.name }}Builder.build() as! {{ module_info.name }}ViewController
+
+        //then
+        XCTAssertNotNil(viewController.viewOutput, "{{ module_info.name }}ViewController is nil after configuration")
+        XCTAssertTrue(viewController.viewOutput is {{ module_info.name }}Presenter, "viewOutput is not {{ module_info.name }}Presenter")
+
+        let presenter: {{ module_info.name }}Presenter = viewController.viewOutput as! {{ module_info.name }}Presenter
+        XCTAssertNotNil(presenter.viewInput, "viewInput in {{ module_info.name }}Presenter is nil after configuration")
+        XCTAssertNotNil(presenter.viewInput is {{ module_info.name }}ViewController, "viewInput is not {{ module_info.name }}Presenter")
+        XCTAssertNotNil(presenter.routerInput, "routerInput in {{ module_info.name }}Presenter is nil after configuration")
+        XCTAssertTrue(presenter.routerInput is {{ module_info.name }}Router, "router is not {{ module_info.name }}Router")
+
+        let interactor: {{ module_info.name }}Interactor = presenter.interactorInput as! {{ module_info.name }}Interactor
+        XCTAssertNotNil(interactor.interactorOutput, "interactorOutput in {{ module_info.name }}Interactor is nil after configuration")
+        XCTAssertTrue(interactor.interactorOutput is {{ module_info.name }}Presenter, "interactorOutput is not {{ module_info.name }}Presenter")
+    }
+}

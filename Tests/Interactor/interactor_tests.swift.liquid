@@ -1,17 +1,15 @@
-{% include 'header' %}
-
 {% include 'tests_import_header' %}
 
 class {{ module_info.name }}InteractorTests: XCTestCase {
-
-
-    var mockInteractorProtocol = {{ module_info.name }}MockPresenter()
+    // MARK: Properties
     var interactor = {{ module_info.name }}Interactor()
+    var interactorOutputMock = InteractorOutputMock()
 
+    // MARK: Lifecycle
     override func setUp() {
         super.setUp()
-        interactor.interactorToPresenter = mockInteractorProtocol
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        interactor.interactorOutput = interactorOutputMock
+        // Add additional setup logic if required
     }
 
     override func tearDown() {
@@ -19,7 +17,11 @@ class {{ module_info.name }}InteractorTests: XCTestCase {
         super.tearDown()
     }
 
-    class {{ module_info.name }}MockPresenter: {{ module_info.name }}InteractorToPresenter {
+    // MARK: Tests
+    // TODO: ADD YOUR TESTS HERE
 
+    // MARK: Mocked Classes
+    class InteractorOutputMock: {{ module_info.name }}InteractorOutput {
+        
     }
 }
