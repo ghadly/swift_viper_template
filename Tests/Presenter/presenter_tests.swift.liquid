@@ -1,12 +1,18 @@
-{% include 'header' %}
-
 {% include 'tests_import_header' %}
 
 class {{ module_info.name }}PresenterTest: XCTestCase {
+    // MARK: Properties
+    var presenter: {{ module_info.name }}Presenter!
+    var viewInputMock = ViewInputMock()
+    var interactorInputMock = InteractorInputMock()
+    var routerInputMock = RouterInputMock()
 
+    // MARK: Lifecycle
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        presenter = {{ module_info.name }}Presenter(with: interactorInputMock, routerInput: routerInputMock)
+        presenter.viewInput = viewInputMock
+        // Add additional setup logic if required
     }
 
     override func tearDown() {
@@ -14,18 +20,21 @@ class {{ module_info.name }}PresenterTest: XCTestCase {
         super.tearDown()
     }
 
-    class MockInteractor: {{ module_info.name }}PresenterToInteractor {
+    // MARK: Tests
+    // TODO: ADD YOUR TESTS HERE
 
-    }
-
-    class MockRouter: {{ module_info.name }}PresenterToRouter {
-
-    }
-
-    class MockViewController: {{ module_info.name }}PresenterToView {
-
+    // MARK: Mocked Classes
+    class ViewInputMock: {{ module_info.name }}ViewInput {
         func setupInitialState() {
-
+            
         }
+    }
+
+    class InteractorInputMock: {{ module_info.name }}InteractorInput {
+
+    }
+
+    class RouterInputMock: {{ module_info.name }}RouterInput {
+
     }
 }

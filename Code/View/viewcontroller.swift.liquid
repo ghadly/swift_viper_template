@@ -1,9 +1,8 @@
-{% include 'header' %}
 import UIKit
 
 final class {{ module_info.name }}ViewController: UIViewController {
     // MARK: Properties
-    private let viewOutput: {{ module_info.name }}ViewOutput
+    let viewOutput: {{ module_info.name }}ViewOutput
 
     // MARK: Initalizers
     init(viewOutput: {{ module_info.name }}ViewOutput) {
